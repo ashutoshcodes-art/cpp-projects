@@ -1,15 +1,3 @@
-/*
-===== TICKET BOOKING SYSTEM =====
-
-1. Add Show
-2. View Shows
-3. Search Show
-4. Book Ticket
-5. Cancel Ticket
-6. View Booked Tickets
-7. Delete Show
-8. Exit
-*/
 
 #include <iostream>
 #include <string>
@@ -36,10 +24,24 @@ void CancelTicket(vector<Show>& a);
 void ViewBookedTickets(const vector<Show>& a);
 void Deleteshow(vector<Show>& a);
 bool chkuniqueshowid(const vector<Show>& a,int num);
-void showdetail(const vector <Show>& a,int i);
+// void showdetail(const vector <Show>& a,int i);
 int findshowid(const vector<Show>&a,int id);
 void saveshows(const vector<Show>& a);
 void loadshows(vector<Show>& a);
+void printheader();
+void printrow(const Show& a,int id);
+
+void printheader(){
+    cout<<left
+            <<setw(8)<<"S No."
+            <<setw(30)<<"Movie Name"
+            <<setw(10)<<"Show ID"
+            <<setw(10)<<"Booked"
+            <<setw(10)<<"Available"
+            <<setw(10)<<"Total Seats"
+            <<endl;
+            cout<<setfill('-')<<setw(79)<<""<<setfill(' ')<<endl;
+}
 
 void saveshows(const vector<Show>& a)
 {
@@ -97,27 +99,25 @@ void ViewBookedTickets(const vector<Show>& a){
     //     cout<<"Booked Tickets : "<<a[index].totalseats - a[index].availableseats<<endl;
     //    }
 
-       cout<<left
-            <<setw(8)<<"S No."
-            <<setw(30)<<"Movie Name"
-            <<setw(10)<<"Show ID"
-            <<setw(10)<<"Booked"
-            <<setw(10)<<"Total Seats"
-            <<endl;
-        cout<<setfill('-')<<setw(68)<<""<<setfill(' ')<<endl;
+       printheader();
+        
        for (size_t i = 0; i < a.size(); i++)
        {
-        int booked = a[i].totalseats - a[i].availableseats;
-        cout<<left
-            <<setw(8)<<i+1
-            <<setw(30)<<a[i].Moviename
-            <<setw(10)<<a[i].showid
-            <<setw(10)<<booked
-            <<setw(10)<<a[i].totalseats
-            <<endl;
+            printrow(a[i],i);
        }
        
     }
+}
+
+void printrow(const Show& a,int id){
+    cout<<left
+            <<setw(8)<<id+1
+            <<setw(30)<<a.Moviename
+            <<setw(10)<<a.showid
+            <<setw(10)<<a.totalseats - a.availableseats
+            <<setw(10)<<a.availableseats
+            <<setw(10)<<a.totalseats
+            <<endl;
 }
 
 void CancelTicket(vector<Show>& a){
@@ -140,17 +140,16 @@ void CancelTicket(vector<Show>& a){
             int num;
                 cout<<"How many Tickets You want to Cancel : ";num = takeint();
                 int bookedtickets = a[index].totalseats - a[index].availableseats;
-                if(num>bookedtickets){
+                if(num>bookedtickets || num<=0){
                     cout<<"Invalid number of seats.\n";
                 }
-                else if(num>0 && num<=bookedtickets){
+                else if(num<=bookedtickets){
                     cout<<"YOU'VE SUCCESSFULLY CANCELLED "<<num<<" TICKETS OF SHOW "<<a[index].Moviename<<endl;
                     a[index].availableseats+=num;
                     saveshows(a);
                 }
             }
         }
-        
         
     }
 }
@@ -212,7 +211,8 @@ void searchshows(const vector<Show>& a){
             cout<<"SHOW NOT FOUND!\n";
         }
         else{
-            showdetail(a,index);
+            printheader();
+            printrow(a[index],index);
         }
     }
 }
@@ -243,12 +243,12 @@ int choice(){
     }
 }
 
-void showdetail(const vector <Show>& a,int i){
-    cout<<"Show Name : "<<a[i].Moviename<<endl;
-    cout<<"Show ID : "<<a[i].showid<<endl;
-    cout<<"Available Seats : ["<<a[i].availableseats<<"/"<<a[i].totalseats<<"]\n";
+// void showdetail(const vector <Show>& a,int i){
+    // cout<<"Show Name : "<<a[i].Moviename<<endl;
+    // cout<<"Show ID : "<<a[i].showid<<endl;
+    // cout<<"Available Seats : ["<<a[i].availableseats<<"/"<<a[i].totalseats<<"]\n";
     // cout<<"Total Seats : "<<a[i].totalseats<<endl;
-}
+// }
 
 int takeint(){
     int num;
@@ -296,10 +296,10 @@ void viewshows(const vector<Show>& a){
         cout<<"\nNO SHOWS ARE AVAILABLE\n";
     }
     else {
+        printheader();
         for (size_t i = 0; i < a.size(); i++)
         {
-            cout<<"\n[S NO. "<<i+1<<"]\n";
-            showdetail(a,i);
+            printrow(a[i],i);
         }
     }
 }
@@ -317,7 +317,8 @@ void Deleteshow(vector<Show>& a){
         }
         else{
             cout<<"\nSHOW DETAILS : \n";
-            showdetail(a,index);
+            printheader();
+            printrow(a[index],index);
             cout<<"SHOW HAS BEEN DELETED SUCCESSFULLY!\n";
             a.erase(a.begin() + index);
             saveshows(a);
