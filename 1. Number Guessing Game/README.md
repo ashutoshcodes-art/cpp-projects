@@ -29,17 +29,6 @@ This project was built while learning the fundamentals of C++ and demonstrates t
 
 ---
 
-## 📂 Project Structure
-
-```
-Number Guessing Game/
-│
-├── main.cpp
-└── README.md
-```
-
----
-
 ## 🚀 How to Run
 
 ### Compile
