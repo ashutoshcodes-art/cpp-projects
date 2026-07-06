@@ -1,15 +1,3 @@
-/*
-===== INVENTORY MANAGEMENT SYSTEM =====
-
-1. Add Product
-2. View Products
-3. Search Product
-4. Update Product
-5. Delete Product
-6. Restock Product
-7. Sell Product
-8. Exit
-*/
 
 #include <iostream>
 #include <vector>
