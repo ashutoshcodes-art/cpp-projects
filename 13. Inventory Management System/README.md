@@ -1,23 +1,26 @@
 # 📦 Inventory Management System
 
-A menu-driven Inventory Management System developed in **C++** to manage products in a store. The application allows users to add, search, update, delete, restock, and sell products while maintaining inventory records using **file handling**, ensuring data is preserved between program executions.
+A menu-driven console application developed in **C++** to manage product inventory for a store. The system allows users to add, view, search, update, delete, restock, and sell products while maintaining records using **file handling**, ensuring inventory data persists between program executions.
+
+This project demonstrates the use of **structures**, **vectors**, **functions**, **file handling**, **formatted output**, and **inventory management logic** to build a persistent product management system.
 
 ---
 
 ## ✨ Features
 
 - ➕ Add new products
-- 📋 View all available products
+- 📋 View all products
 - 🔍 Search products using Product ID
 - ✏️ Update product details
 - 🗑️ Delete products
-- 📦 Restock existing products
+- 📦 Restock product quantity
 - 🛒 Sell products
-- 💰 Automatically generate bill during sale
-- 🆔 Prevent duplicate Product IDs
-- 💾 Automatically save inventory to a file
-- 📂 Automatically load saved inventory when the program starts
-- 📊 Display inventory in a formatted table
+- 💰 Automatically calculate the total bill during sales
+- 🚫 Prevent duplicate Product IDs
+- 💾 Automatically save inventory records
+- 📂 Automatically load inventory on startup
+- 📊 Display products in a formatted table
+- 📋 Menu-driven interface
 
 ---
 
@@ -26,53 +29,54 @@ A menu-driven Inventory Management System developed in **C++** to manage product
 - Structures (`struct`)
 - Vectors (`vector<Product>`)
 - Functions
-- Pass by Reference
+- File Handling (`ifstream` / `ofstream`)
 - Input Validation
 - Linear Search
-- File Handling (`ifstream` / `ofstream`)
+- Formatted Output (`iomanip`)
 - Menu-Driven Programming
-- Formatted Output using `iomanip`
 
 ---
 
-## 📂 Data Stored
+## 📂 Product Information Stored
 
-Each product stores the following information:
+Each product record contains:
 
-- Product Name
-- Product ID
-- Available Quantity
-- Product Price
+- 📦 Product Name
+- 🆔 Product ID
+- 📊 Quantity
+- 💰 Price
 
 ---
 
-## 📁 File Handling
+## 💾 File Handling
 
 This project uses **persistent storage** to maintain inventory records.
 
 ### Data File
 
-```
+```text
 inventory.txt
 ```
 
 ### Automatic Operations
 
-- Loads all saved products when the application starts.
-- Saves updated inventory after:
+The application automatically:
+
+- Loads all saved products when the program starts.
+- Saves inventory after:
   - Adding a product
   - Updating product details
   - Deleting a product
-  - Restocking products
+  - Restocking inventory
   - Selling products
 
-This ensures inventory data is retained even after the application is closed.
+This ensures that inventory information remains available even after closing the application.
 
 ---
 
 ## 📋 Menu Options
 
-```
+```text
 1. Add Product
 2. View Products
 3. Search Product
@@ -89,64 +93,100 @@ This ensures inventory data is retained even after the application is closed.
 
 ### Add Product
 
-- Enter product name
-- Assign a unique Product ID
-- Specify quantity
-- Enter price
-- Product is stored in memory and saved to the file.
+Allows the user to enter:
+
+- Product Name
+- Product ID
+- Quantity
+- Price
+
+Before adding the product, the program verifies that the Product ID is unique.
+
+The record is then stored in memory and saved to the inventory file.
 
 ---
 
 ### View Products
 
-Displays all products in a neatly formatted table including:
+Displays all stored products in a formatted table containing:
 
 - Serial Number
 - Product Name
 - Product ID
-- Quantity
+- Available Quantity
 - Price
 
 ---
 
 ### Search Product
 
-Locate a product using its unique Product ID and display all its details.
+Searches for a product using its unique Product ID.
+
+If found, the product details are displayed.
+
+Otherwise, an appropriate "Product Not Found" message is shown.
 
 ---
 
 ### Update Product
 
-Modify:
+Allows modification of:
 
 - Product Name
 - Quantity
 - Price
 
-Changes are immediately written to the inventory file.
+After updating, the modified record is automatically written to the inventory file.
 
 ---
 
 ### Delete Product
 
-Remove a product permanently from both memory and the storage file.
+Removes the selected product from both memory and the inventory file.
 
 ---
 
 ### Restock Product
 
-Increase the quantity of an existing product without modifying other details.
+Allows increasing the available quantity of an existing product without changing its other details.
+
+The updated inventory is automatically saved.
 
 ---
 
 ### Sell Product
 
-- Select a product using its ID.
-- Enter the quantity to sell.
-- Checks stock availability before processing.
-- Deducts sold quantity from inventory.
+Allows selling products by entering the desired quantity.
+
+The program:
+
+- Verifies that the product exists.
+- Checks whether sufficient stock is available.
+- Deducts the sold quantity from inventory.
 - Calculates and displays the total bill.
 - Saves the updated inventory automatically.
+
+---
+
+## ⚙️ Algorithms Used
+
+- Linear Search
+- Duplicate Product ID Validation
+- Dynamic Record Storage using Vectors
+- Vector Erase Operation
+
+---
+
+## ✅ Validation Implemented
+
+The application performs:
+
+- Valid menu selection
+- Integer and floating-point input validation
+- Duplicate Product ID checking
+- Empty inventory verification
+- Product existence verification
+- Stock availability checking before selling
 
 ---
 
@@ -163,31 +203,33 @@ Increase the quantity of an existing product without modifying other details.
 
 ## ▶️ Compilation
 
+Compile the program:
+
 ```bash
-g++ main.cpp -o inventory
+g++ main.cpp -o inventory-management
 ```
 
-Run the program:
+Run the executable:
 
 ```bash
-./inventory
+./inventory-management
 ```
 
 ---
 
-## 📖 Learning Outcomes
+## 📚 Learning Outcomes
 
 While building this project, I practiced:
 
-- Designing menu-driven applications
-- Managing collections of records using vectors
-- Structuring programs with reusable functions
+- Managing records using vectors
+- Organizing data using structures
 - Implementing persistent storage with file handling
-- Performing CRUD (Create, Read, Update, Delete) operations
-- Validating user input
-- Searching records efficiently
-- Managing stock and inventory logic
+- Reading from and writing to text files
+- Managing inventory and stock updates
+- Calculating bills based on quantity and price
+- Preventing duplicate records
 - Formatting console output using tables
+- Designing modular, menu-driven applications
 
 ---
 
@@ -197,4 +239,4 @@ While building this project, I practiced:
 
 B.Tech Computer Science & Information Technology (CS-IT)
 
-Built as part of my C++ learning journey to strengthen programming fundamentals through practical, real-world console applications.
+Built as part of my C++ learning journey to strengthen programming fundamentals through practical, console-based projects.
