@@ -1,61 +1,44 @@
-# 🧮 Menu-Driven Calculator (C++)
+# 🧮 Menu-Driven Calculator
 
-A console-based calculator developed in **C++** using a menu-driven approach. The program performs various mathematical operations by allowing the user to choose an option from the menu. It is built using modular functions and demonstrates fundamental C++ programming concepts.
+A console-based calculator developed in **C++** that performs various mathematical operations through a menu-driven interface. The application supports both basic arithmetic operations and advanced mathematical functions while validating user input for a smooth user experience.
 
----
-
-## Features
-
-- Addition of multiple numbers
-- Subtraction
-- Multiplication
-- Division
-- Modulus
-- Power Calculation
-- Square Root
-- Factorial (using recursion)
-- Percentage Calculation
-- Menu-driven interface
-- Input validation for numeric values
+This project demonstrates the use of functions, vectors, recursion, mathematical libraries, and menu-driven programming.
 
 ---
 
-## Concepts Used
+## ✨ Features
+
+- ➕ Addition of multiple numbers
+- ➖ Subtraction
+- ✖️ Multiplication
+- ➗ Division
+- % Modulus
+- 🔢 Power Calculation
+- √ Square Root
+- 🔄 Factorial (Recursive)
+- 📊 Percentage Calculation
+- ✅ Input Validation
+- 📋 Menu-driven interface
+
+---
+
+## 🛠 Concepts Used
 
 - Functions
 - Function Prototypes
+- Recursion
+- Vectors
 - Loops
 - Conditional Statements
-- Recursion
-- Vectors (`std::vector`)
-- Input Validation (`cin.fail()`)
-- Mathematical Functions (`<cmath>`)
+- Input Validation
+- Mathematical Functions (`cmath`)
+- Menu-Driven Programming
 
 ---
 
-## How to Compile and Run
+## 📋 Menu Options
 
-### Compile
-
-```bash
-g++ main.cpp -o calculator
-```
-
-### Run
-
-```bash
-./calculator
-```
-
----
-
-## Sample Output
-
-```
-===============================
-      MENU CALCULATOR
-===============================
-
+```text
 1. Addition
 2. Subtraction
 3. Multiplication
@@ -66,24 +49,125 @@ g++ main.cpp -o calculator
 8. Factorial
 9. Percentage
 10. Exit
-
-Choose An Option : 1
-
-How many digits you wanna sum : 3
-
-Enter Digit 1 : 10
-Enter Digit 2 : 20
-Enter Digit 3 : 30
-
-RESULT : 60
 ```
 
 ---
 
-## Author
+## 🚀 How It Works
+
+### Addition
+
+Allows the user to enter multiple numbers and calculates their sum using a vector.
+
+---
+
+### Subtraction
+
+Calculates the difference between two numbers.
+
+---
+
+### Multiplication
+
+Calculates the product of two numbers.
+
+---
+
+### Division
+
+Divides one number by another and displays the result.
+
+---
+
+### Modulus
+
+Calculates the remainder when one integer is divided by another.
+
+---
+
+### Power
+
+Calculates the value of a number raised to a specified exponent using the `pow()` function.
+
+---
+
+### Square Root
+
+Calculates the square root of a positive number using the `sqrt()` function.
+
+---
+
+### Factorial
+
+Computes the factorial of a positive integer using a **recursive function**.
+
+---
+
+### Percentage
+
+Accepts multiple marks, calculates their average, and displays the percentage.
+
+---
+
+## ✅ Input Validation
+
+The program validates:
+
+- Integer inputs
+- Floating-point inputs
+- Positive numbers
+- Valid menu choices
+
+This prevents invalid input from crashing the program.
+
+---
+
+## ⚙️ Requirements
+
+- C++11 or later
+- Any standard C++ compiler
+  - g++
+  - MinGW
+  - MSVC
+  - Clang
+
+---
+
+## ▶️ Compilation
+
+Compile the program:
+
+```bash
+g++ main.cpp -o calculator
+```
+
+Run the executable:
+
+```bash
+./calculator
+```
+
+---
+
+## 📚 Learning Outcomes
+
+While building this project, I practiced:
+
+- Designing menu-driven applications
+- Breaking problems into reusable functions
+- Using vectors to process multiple inputs
+- Implementing recursion for factorial calculation
+- Using the C++ `<cmath>` library
+- Performing mathematical computations
+- Validating user input
+- Improving program organization using modular design
+
+---
+
+## 👨‍💻 Author
 
 **Ashutosh**
 
 B.Tech Computer Science & Information Technology (CS-IT)
 
-Learning C++, Data Structures & Algorithms, and Software Development through hands-on projects.
+Built as part of my C++ learning journey to strengthen programming fundamentals through practical, console-based projects.
