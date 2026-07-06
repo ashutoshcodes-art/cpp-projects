@@ -1,21 +1,3 @@
-/*
-===== ARRAY OPERATIONS SYSTEM =====
-
-1. Create Array
-2. Display Array
-3. Insert Element
-4. Delete Element
-5. Search Element
-6. Update Element
-7. Sort Array
-8. Reverse Array
-9. Find Maximum
-10. Find Minimum
-11. Sum of Elements
-12. Average
-13. Remove Duplicates
-14. Exit
-*/
 
 #include <iostream>
 #include <limits>
