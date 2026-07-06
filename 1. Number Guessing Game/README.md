@@ -1,124 +1,112 @@
 # 🎯 Number Guessing Game
 
-A simple console-based **Number Guessing Game** developed in **C++** where the computer randomly generates a number between **1 and 100**, and the player has to guess it with the help of hints.
-
-After every incorrect guess, the game tells the player whether the correct number is **higher** or **lower**, making the gameplay interactive and enjoyable.
-
-This project was built while learning the fundamentals of C++ and demonstrates the use of functions, loops, conditional statements, and random number generation.
+A simple console-based C++ game where the player tries to guess a randomly generated number between **1 and 100**. The game provides hints after each incorrect guess and tracks the total number of attempts required to find the correct number. Players can also choose to replay the game multiple times without restarting the program.
 
 ---
 
 ## ✨ Features
 
-- 🎲 Random number generation (1–100)
-- 💡 Hint system
-  - **Little Higher!**
-  - **Little Lower!**
-- 🔢 Counts the number of attempts
-- 🔄 Play Again option
-- 📌 Modular program using functions
-- 🖥️ Simple console interface
+- 🎲 Random number generation between 1 and 100
+- 💡 Higher/Lower hints after every incorrect guess
+- 📊 Counts the number of attempts taken
+- 🔁 Replay option without restarting the application
+- 🖥️ Simple console-based interface
 
 ---
 
-## 🛠️ Technologies Used
-
-- **Language:** C++
-- **Compiler:** g++
-- **IDE:** Visual Studio Code
-
----
-
-## 🚀 How to Run
-
-### Compile
-
-```bash
-g++ main.cpp -o game
-```
-
-### Run
-
-```bash
-./game
-```
-
----
-
-## 🎮 Gameplay
-
-1. The computer generates a random number between **1 and 100**.
-2. Enter your guess.
-3. The game provides hints:
-   - 📉 **Little Higher!**
-   - 📈 **Little Lower!**
-4. Continue guessing until you find the correct number.
-5. The program displays the total number of attempts.
-6. Choose whether to play another round.
-
----
-
-## 💻 Sample Output
-
-```
-I've Thought the Number between 1 to 100
-
-Guess Number : 40
-Little Higher!
-
-Guess Number : 75
-Little Lower!
-
-Guess Number : 63
-Correct!
-You Guessed it in 3 attempts
-
-You want to Play again [Y/N] :
-```
-
----
-
-## 📚 Concepts Covered
-
-This project demonstrates the following C++ concepts:
+## 🛠 Concepts Used
 
 - Functions
-- Function Declarations
-- Function Calls
-- Loops (`while`)
-- Conditional Statements (`if-else`)
-- Boolean Variables
-- Random Number Generation (`rand()`, `srand()`)
-- Time-based Seeding (`time(0)`)
+- Loops
+- Conditional Statements
+- Random Number Generation (`rand()`)
+- Time-based Random Seed (`srand(time(0))`)
 - Character Handling (`tolower()`)
-- User Interaction
 
 ---
 
-## 📖 What I Learned
+## 🚀 How It Works
 
-While building this project, I learned:
+### Generate Random Number
 
-- How pseudo-random numbers are generated in C++
-- Why `srand(time(0))` is required
-- Breaking a program into reusable functions
-- Designing simple game logic
-- Using loops until a condition is satisfied
-- Handling user choices for replaying the game
+The program generates a random secret number between **1 and 100** using:
+
+```cpp
+rand() % 100 + 1
+```
 
 ---
 
-## 🔮 Future Improvements
+### Guess the Number
 
-Some features I plan to add in future versions:
+The player repeatedly enters guesses.
 
-- Difficulty Levels (Easy, Medium, Hard)
-- Limited Attempts Mode
-- Score System
-- Best Score Record
-- Input Validation
-- Colorful Console Output
-- Timer-based Challenge
+The program responds with:
+
+- **Correct!** if the guess matches
+- **Little Higher!** if the guess is too small
+- **Little Lower!** if the guess is too large
+
+The loop continues until the correct number is guessed.
+
+---
+
+### Attempt Counter
+
+Every guess increases the attempt counter.
+
+Once the correct answer is found, the program displays the total number of attempts taken.
+
+---
+
+### Replay Option
+
+After each game, the player can choose:
+
+- **Y** → Play another round
+- **N** → Exit the game
+
+Input is accepted in both uppercase and lowercase.
+
+---
+
+## ⚙️ Requirements
+
+- C++11 or later
+- Any standard C++ compiler
+  - g++
+  - MinGW
+  - MSVC
+  - Clang
+
+---
+
+## ▶️ Compilation
+
+Compile the program:
+
+```bash
+g++ main.cpp -o guessing-game
+```
+
+Run the executable:
+
+```bash
+./guessing-game
+```
+
+---
+
+## 📚 Learning Outcomes
+
+While building this project, I practiced:
+
+- Designing programs using functions
+- Generating random numbers
+- Using loops for repeated gameplay
+- Tracking program state with variables
+- Validating user interaction
+- Building an interactive console application
 
 ---
 
@@ -128,10 +116,4 @@ Some features I plan to add in future versions:
 
 B.Tech Computer Science & Information Technology (CS-IT)
 
-Learning C++, Data Structures & Algorithms, and Software Development.
-
----
-
-## ⭐ If you like this project
-
-If you found this project interesting, consider giving the repository a **⭐ Star**.
+Built as part of my C++ learning journey to strengthen programming fundamentals through practical, console-based projects.
