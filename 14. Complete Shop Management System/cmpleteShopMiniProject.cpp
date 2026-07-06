@@ -1,20 +1,3 @@
-/*
-===== COMPLETE MINI PROJECT =====
-        SHOP MANAGEMENT SYSTEM
-
-1. Add Product
-2. View Products
-3. Search Product
-4. Update Stock
-5. Sell Product
-6. Delete Product
-7. Exit
-
-Concepts Used:
-- Arrays
-- Strings
-- Functions
-*/
 
 #include <iostream>
 #include <iomanip>
