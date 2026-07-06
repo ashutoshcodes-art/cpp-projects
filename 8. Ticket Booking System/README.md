@@ -1,103 +1,83 @@
-# 🎟️ Ticket Booking System (C++)
+# 🎟️ Ticket Booking System
 
-A console-based Ticket Booking System developed in **C++**. This project allows users to manage movie shows through a menu-driven interface. It supports adding shows, booking and cancelling tickets, viewing booked seats, searching shows, and deleting shows. All show information is stored permanently using **file handling**, ensuring data is retained even after the application is closed.
+A menu-driven console application developed in **C++** to simulate a movie ticket booking system. The application allows users to add movie shows, view available shows, search shows, book tickets, cancel bookings, view booking statistics, and delete shows while maintaining records using **file handling**.
 
----
-
-## Features
-
-- Add new movie shows
-- View all available shows
-- Search shows by Show ID
-- Book movie tickets
-- Cancel booked tickets
-- View booked and available seats
-- Delete movie shows
-- Unique Show ID validation
-- Automatic seat availability management
-- Formatted table display using `iomanip`
-- Automatic saving of show records to a text file
-- Automatic loading of saved records when the program starts
-- Menu-driven interface
-- Input validation for numeric values
+This project demonstrates the use of **structures**, **vectors**, **functions**, **file handling**, **formatted output**, and **seat management logic** to build a persistent ticket booking application.
 
 ---
 
-## Concepts Used
+## ✨ Features
+
+- 🎬 Add new movie shows
+- 📋 View all available shows
+- 🔍 Search shows using Show ID
+- 🎟️ Book movie tickets
+- ❌ Cancel booked tickets
+- 📊 View booked ticket statistics
+- 🗑️ Delete movie shows
+- 🚫 Prevent duplicate Show IDs
+- 💺 Automatic seat availability management
+- 💾 Automatically save show records
+- 📂 Automatically load saved shows
+- 📊 Display shows in a formatted table
+- 📋 Menu-driven interface
+
+---
+
+## 🛠 Concepts Used
 
 - Structures (`struct`)
-- Vectors (`std::vector`)
+- Vectors (`vector<Show>`)
 - Functions
-- Strings (`std::string`)
-- File Handling (`ifstream`, `ofstream`)
-- Reading and Writing Text Files
-- Formatted Output (`iomanip`)
-- Dynamic Data Storage
+- File Handling (`ifstream` / `ofstream`)
+- Input Validation
 - Linear Search
-- Loops
-- Conditional Statements
-- Input Validation (`cin.fail()`)
+- Formatted Output (`iomanip`)
+- Menu-Driven Programming
 
 ---
 
-## Data Storage
+## 📂 Show Information Stored
 
-The project stores all movie show information in a text file named:
+Each movie show stores:
+
+- 🎬 Movie Name
+- 🆔 Show ID
+- 💺 Available Seats
+- 🎟️ Total Seats
+
+The program also calculates the number of booked seats dynamically.
+
+---
+
+## 💾 File Handling
+
+This project uses **persistent storage** to maintain show information.
+
+### Data File
 
 ```text
 Showdata.txt
 ```
 
-The file is automatically:
+### Automatic Operations
 
-- Loaded when the program starts
-- Updated after adding a new show
-- Updated after booking tickets
-- Updated after cancelling tickets
-- Updated after deleting a show
+The application automatically:
 
-This ensures that all movie show records and seat availability remain saved across multiple executions of the program.
+- Loads all saved shows when the program starts.
+- Saves show data after:
+  - Adding a show
+  - Booking tickets
+  - Cancelling tickets
+  - Deleting a show
 
----
-
-## Seat Management
-
-Each movie show stores:
-
-- Total Seats
-- Available Seats
-- Booked Seats (calculated automatically)
-
-The system automatically:
-
-- Decreases available seats after ticket booking
-- Increases available seats after ticket cancellation
-- Prevents booking more tickets than available
-- Prevents cancelling more tickets than booked
+This ensures that all booking information remains available between program executions.
 
 ---
 
-## How to Compile and Run
-
-### Compile
-
-```bash
-g++ main.cpp -o ticket_booking
-```
-
-### Run
-
-```bash
-./ticket_booking
-```
-
----
-
-## Sample Output
+## 📋 Menu Options
 
 ```text
-===== TICKET BOOKING SYSTEM =====
-
 1. Add Show
 2. View Shows
 3. Search Show
@@ -106,24 +86,176 @@ g++ main.cpp -o ticket_booking
 6. View Booked Tickets
 7. Delete Show
 8. Exit
-
-Choose an Option from the Menu : 1
-
-ADDING NEW SHOW!
-
-Enter Show Name : Avengers Endgame
-Enter Show ID : 101
-Enter Total Seats : 150
-
-SHOW ADDED SUCCESSFULLY!
 ```
 
 ---
 
-## Author
+## 🚀 How It Works
+
+### Add Show
+
+Allows the user to enter:
+
+- Movie Name
+- Show ID
+- Total Number of Seats
+
+The application verifies that the Show ID is unique before creating the show.
+
+Initially, all seats are marked as available.
+
+---
+
+### View Shows
+
+Displays all available movie shows in a formatted table including:
+
+- Movie Name
+- Show ID
+- Booked Seats
+- Available Seats
+- Total Seats
+
+---
+
+### Search Show
+
+Searches for a show using its unique Show ID.
+
+If found, complete show details are displayed.
+
+Otherwise, an appropriate "Show Not Found" message is shown.
+
+---
+
+### Book Ticket
+
+Allows booking one or more tickets for a selected show.
+
+The program verifies:
+
+- The show exists.
+- Seats are available.
+- Requested tickets do not exceed the available seats.
+
+After successful booking:
+
+- Available seats decrease.
+- Booked seats increase automatically.
+- Updated data is saved.
+
+---
+
+### Cancel Ticket
+
+Allows users to cancel previously booked tickets.
+
+Before cancellation, the application verifies:
+
+- The show exists.
+- Tickets have actually been booked.
+- Cancellation quantity is valid.
+
+After cancellation:
+
+- Available seats increase.
+- Booked seats decrease automatically.
+- Updated information is saved.
+
+---
+
+### View Booked Tickets
+
+Displays all movie shows along with:
+
+- Booked Seats
+- Available Seats
+- Total Capacity
+
+This provides a quick overview of booking status for every show.
+
+---
+
+### Delete Show
+
+Removes a movie show permanently using its Show ID.
+
+The record is deleted from both memory and the storage file.
+
+---
+
+## ⚙️ Algorithms Used
+
+- Linear Search
+- Duplicate Show ID Validation
+- Dynamic Record Storage using Vectors
+- Vector Erase Operation
+- Seat Availability Calculation
+
+---
+
+## ✅ Validation Implemented
+
+The application performs:
+
+- Valid menu selection
+- Integer input validation
+- Unique Show ID verification
+- Show existence verification
+- Seat availability validation
+- Booking limit validation
+- Cancellation limit validation
+- Empty show list verification
+
+---
+
+## ⚙️ Requirements
+
+- C++11 or later
+- Any standard C++ compiler
+  - g++
+  - MinGW
+  - MSVC
+  - Clang
+
+---
+
+## ▶️ Compilation
+
+Compile the program:
+
+```bash
+g++ main.cpp -o ticket-booking
+```
+
+Run the executable:
+
+```bash
+./ticket-booking
+```
+
+---
+
+## 📚 Learning Outcomes
+
+While building this project, I practiced:
+
+- Managing multiple records using vectors
+- Organizing data with structures
+- Implementing persistent storage using file handling
+- Reading from and writing to text files
+- Managing seat availability dynamically
+- Implementing booking and cancellation workflows
+- Validating user input and booking constraints
+- Formatting console output using tables
+- Designing modular, menu-driven applications
+
+---
+
+## 👨‍💻 Author
 
 **Ashutosh**
 
 B.Tech Computer Science & Information Technology (CS-IT)
 
-Learning C++, Data Structures & Algorithms, and Software Development through hands-on projects.
+Built as part of my C++ learning journey to strengthen programming fundamentals through practical, console-based projects.
