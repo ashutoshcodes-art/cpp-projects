@@ -1,119 +1,216 @@
-# 📞 Contact Management System (C++)
+# 📞 Contact Management System
 
-A console-based Contact Management System developed in **C++**. This project allows users to manage personal contacts through a menu-driven interface. It supports adding, viewing, searching, updating, and deleting contacts while storing records permanently using **file handling**. The system also validates phone numbers and ensures every contact has a unique mobile number.
+A menu-driven console application developed in **C++** to manage personal contacts. The system allows users to add, view, search, update, and delete contacts while maintaining records using **file handling**, ensuring that all contacts remain available even after the application is closed.
 
----
-
-## Features
-
-- Add new contacts
-- View all saved contacts
-- Search contacts using Phone Number
-- Update contact name or phone number
-- Delete contacts
-- Unique phone number validation
-- 10-digit phone number validation
-- Formatted contact display using tables
-- Automatic saving of contacts to a text file
-- Automatic loading of saved contacts on program startup
-- Menu-driven interface
-- Input validation for numeric values
+This project demonstrates the use of **structures**, **vectors**, **functions**, **strings**, **file handling**, and **input validation** to build a persistent contact management application.
 
 ---
 
-## Concepts Used
+## ✨ Features
+
+- ➕ Add new contacts
+- 📋 View all contacts
+- 🔍 Search contacts using Phone Number
+- ✏️ Update contact details
+- 🗑️ Delete contacts
+- 📱 Validate 10-digit phone numbers
+- 🚫 Prevent duplicate phone numbers
+- 💾 Automatically save contacts
+- 📂 Automatically load contacts at startup
+- 📊 Display contacts in a formatted table
+- 📋 Menu-driven interface
+
+---
+
+## 🛠 Concepts Used
 
 - Structures (`struct`)
-- Vectors (`std::vector`)
-- Functions
+- Vectors (`vector<Contact>`)
 - Strings (`std::string`)
-- File Handling (`ifstream`, `ofstream`)
-- Reading and Writing Text Files
-- Formatted Output (`iomanip`)
-- Dynamic Data Storage
+- Functions
+- File Handling (`ifstream` / `ofstream`)
+- Input Validation
 - Linear Search
-- Input Validation (`cin.fail()`)
-- String Validation (`isdigit()`)
+- Formatted Output (`iomanip`)
+- Menu-Driven Programming
 
 ---
 
-## Data Storage
+## 📂 Contact Information Stored
 
-The project stores all contact information in a text file named:
+Each contact contains:
+
+- 👤 Contact Name
+- 📱 Phone Number
+
+---
+
+## 💾 File Handling
+
+This project uses **persistent storage** to maintain contact records.
+
+### Data File
 
 ```text
 contacts.txt
 ```
 
-The file is automatically:
+### Automatic Operations
 
-- Loaded when the program starts
-- Updated after adding a contact
-- Updated after updating a contact
-- Updated after deleting a contact
+The application automatically:
 
-This ensures that all contacts remain saved even after closing the application.
+- Loads all contacts when the program starts.
+- Saves contacts after:
+  - Adding a contact
+  - Updating a contact
+  - Deleting a contact
 
----
-
-## Phone Number Validation
-
-The system validates every phone number before saving it.
-
-Validation rules:
-
-- Must contain exactly **10 digits**
-- Only numeric characters are allowed
-- Duplicate phone numbers are not permitted
-
-This helps maintain accurate and unique contact records.
+This ensures that all contact information is preserved between program executions.
 
 ---
 
-## How to Compile and Run
-
-### Compile
-
-```bash
-g++ main.cpp -o contact_management
-```
-
-### Run
-
-```bash
-./contact_management
-```
-
----
-
-## Sample Output
+## 📋 Menu Options
 
 ```text
-===== CONTACT MANAGEMENT =====
-
 1. Add Contact
 2. View All Contacts
 3. Search Contact
 4. Update Contact
 5. Delete Contact
 6. Exit
-
-Choose an Option from the Menu : 1
-
-ADDING NEW CONTACT!
-
-Enter Name : Ashutosh
-Enter Phone No. : 9876543210
-
-CONTACT ADDED SUCCESSFULLY!
 ```
 
 ---
 
-## Author
+## 🚀 How It Works
+
+### Add Contact
+
+The user enters:
+
+- Contact Name
+- Phone Number
+
+Before adding the contact, the program validates that:
+
+- The phone number contains exactly **10 digits**.
+- The phone number does not already exist.
+
+After successful validation, the contact is stored and automatically saved to the file.
+
+---
+
+### View Contacts
+
+Displays all stored contacts in a formatted table containing:
+
+- Serial Number
+- Contact Name
+- Phone Number
+
+---
+
+### Search Contact
+
+Searches for a contact using its **Phone Number**.
+
+If the contact exists, its details are displayed in a formatted table.
+
+Otherwise, the program displays an appropriate "Contact Not Found" message.
+
+---
+
+### Update Contact
+
+Allows updating either:
+
+- Contact Name
+- Phone Number
+
+When updating the phone number, the application again validates:
+
+- 10-digit format
+- Duplicate phone number prevention
+
+The updated contact is immediately saved to the file.
+
+---
+
+### Delete Contact
+
+Searches for a contact using the phone number and permanently removes it from both memory and the storage file.
+
+---
+
+## ⚙️ Algorithms Used
+
+- Linear Search
+- Duplicate Phone Number Validation
+- Phone Number Format Validation
+- Dynamic Record Storage using Vectors
+- Vector Erase Operation
+
+---
+
+## ✅ Validation Implemented
+
+The application performs:
+
+- Valid menu selection
+- Integer input validation
+- 10-digit phone number validation
+- Duplicate phone number checking
+- Empty contact list verification
+- Contact existence verification before update and deletion
+
+---
+
+## ⚙️ Requirements
+
+- C++11 or later
+- Any standard C++ compiler
+  - g++
+  - MinGW
+  - MSVC
+  - Clang
+
+---
+
+## ▶️ Compilation
+
+Compile the program:
+
+```bash
+g++ main.cpp -o contact-management
+```
+
+Run the executable:
+
+```bash
+./contact-management
+```
+
+---
+
+## 📚 Learning Outcomes
+
+While building this project, I practiced:
+
+- Managing records using vectors
+- Organizing data with structures
+- Implementing persistent storage using file handling
+- Reading from and writing to text files
+- Validating user input
+- Preventing duplicate records
+- Formatting console output using tables
+- Designing modular, menu-driven applications
+
+---
+
+## 👨‍💻 Author
 
 **Ashutosh**
 
 B.Tech Computer Science & Information Technology (CS-IT)
 
-Learning C++, Data Structures & Algorithms, and Software Development through hands-on projects.
+Built as part of my C++ learning journey to strengthen programming fundamentals through practical, console-based projects.
